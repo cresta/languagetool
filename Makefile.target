@@ -1,0 +1,14 @@
+URL=quay.io/cresta/languagetools
+VERSION=0.0.1
+
+
+build:
+	docker build -t $(URL):$(VERSION) .
+	docker tag $(URL):$(VERSION) $(URL):latest
+
+push:
+	docker push $(URL):$(VERSION)
+	docker push $(URL):latest
+
+run:
+	docker run -p 8081:8081 $(URL):$(VERSION)
